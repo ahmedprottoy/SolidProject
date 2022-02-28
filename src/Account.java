@@ -10,6 +10,6 @@ public class Account {
     }
 
     public void show(){
-        System.out.println("New Account Has Been Created ! ");
+        System.out.println("You've received A Text. \n New Account Has Been Created !! ");
     }
 }

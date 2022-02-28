@@ -2,7 +2,7 @@ public class EmailNotification implements NotificatiionService{
 
     @Override
     public void sendOTP() {
-        System.out.println("Transaction successfull\nSend via email");
+        System.out.println("Transaction successful\nSent Via Email");
     }
 
     @Override

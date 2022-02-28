@@ -1,14 +1,14 @@
 public class Deposit implements Transactions{
     
-    int amount =0;
-    String name ,  acNumber;
-    Deposit(String name , String acNumber , int amount){
-        this.name = name;
+    int amount;
+    String acNumber;
+    Deposit( String acNumber , int amount){
+
         this.acNumber = acNumber;
         this.amount = amount;
     }
     public String doTransaction(){
-        String message = name+" deposit " +amount+"$ at account "+acNumber ;
+        String message = "Dear Sir, Your A/C " + acNumber + " Has Been Credited By Taka " + amount ;
         return message;
     }
 

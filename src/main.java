@@ -5,63 +5,63 @@ public class main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         while (true) {
-            System.out.println("Choose Option : \n Press 1 - if you're new user \n press 2 - if you already have account.");
+            System.out.println("Choose Option : \n Press 1 - To Create New Account \n Press 2 - Already Got an Account");
 
             int n = input.nextInt();
+
             if (n == 1) {
                 String name, Age, Phone, Acc_type;
-                System.out.print("Enter your name :");
+                System.out.print("Enter Your Name :");
                 name = input.next();
-                System.out.print("Enter your Age :");
+                System.out.print("Enter Your Age :");
                 Age = input.next();
-                System.out.print("Enter your Phone No :");
+                System.out.print("Enter Your Phone No :");
                 Phone = input.next();
-                System.out.print("Prefered Account Type :");
+                System.out.print("Preferred Account Type :");
                 Acc_type = input.next();
 
                 Account a = new Account(name, Age, Phone, Acc_type);
-            } else {
-                System.out.println("To get the bank service enter your name and account number : ");
-                System.out.print("Name: ");
+            }
+            else {
+                System.out.println("Get ATM Services - ");
+                System.out.print("Name : ");
                 String name = input.next();
                 System.out.print("Account number : ");
                 String acNumber = input.next();
 
-                String option;
+                int option;
                 int amount = 0;
-                System.out.println("Services : \nDeposit \nWithdraw \nLoanservice \nCheck balance \nTo sign out enter 'Exit'");
-                while ((option = input.next()) != "reject") {
+                System.out.println("Select Desired Services : \n1. Deposit \n2. Withdraw \n3. Exit ");
+                option = input.nextInt();
+                while (option != 66) {
 
-                    if (option.equalsIgnoreCase("deposit") || option.equalsIgnoreCase("withdraw")) {
+                    if (option == 1 || option == 2) {
                         Transactions t;
                         System.out.print("Amount: ");
                         amount = input.nextInt();
-                        if (option.equalsIgnoreCase("deposit")) {
-                            t = (Transactions) new Deposit(name, acNumber, amount);
+                        if (option == 1) {
+                            t = (Transactions) new Deposit(acNumber, amount);
 
-                        } else {
-                            t = (Transactions) new Withdraw(name, acNumber, amount);
+                        }
+                        else {
+                            t = (Transactions) new Withdraw(acNumber, amount);
 
                         }
                         String message = t.doTransaction();
-                        //b.doCalc(amount);
-                        System.out.print("Send notification at : ");
-                        //String medium = input.nextLine();
-                        String medium = input.next();
-                        if (medium.equalsIgnoreCase("Email")) {
+                        System.out.print("Get Notification Via :\n 4. Email \n 5. Phone\n");
+                        int medium = input.nextInt();
+                        if (medium ==4) {
                             EmailNotification email = new EmailNotification();
                             //email.sendOTP();
                             email.sendTransactionReport(message);
                             email.sendOTP();
-                        } else if (medium.equalsIgnoreCase("phone")) {
+                        } else if (medium ==5) {
                             PhoneNotification pn = new PhoneNotification();
                             pn.sendTransactionReport(message);
                             pn.sendOTP();
                         }
-                    } else if (option.equalsIgnoreCase("Exit")) {
+                    } else if (option == 3) {
                         break;
-                    } else {
-                        System.out.println("Unknown keyword");
                     }
                 }
             }

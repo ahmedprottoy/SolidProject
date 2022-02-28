@@ -3,7 +3,7 @@ public class PhoneNotification implements NotificatiionService,Call{
     @Override
     public void sendOTP() {
 
-        System.out.println("Transaction successfull \nSend via phone");
+        System.out.println("Transaction successfull \nSent Via Phone Text");
     }
 
     @Override
@@ -13,8 +13,8 @@ public class PhoneNotification implements NotificatiionService,Call{
     }
 
     @Override
-    public void makeAcall() {
-        System.out.println("Incoming call");
+    public void getCall() {
+        System.out.println("Calling In A Few Minutes...");
     }
     
 }

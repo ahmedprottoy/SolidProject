@@ -1,6 +1,6 @@
 
 public interface Call {
     
-    public void makeAcall();
+    public void getCall();
     
 }
