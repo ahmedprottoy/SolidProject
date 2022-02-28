@@ -22,7 +22,7 @@ public class main {
 
                 Account a = new Account(name, Age, Phone, Acc_type);
             }
-            else {
+            else{
                 System.out.println("Get ATM Services - ");
                 System.out.print("Name : ");
                 String name = input.next();
